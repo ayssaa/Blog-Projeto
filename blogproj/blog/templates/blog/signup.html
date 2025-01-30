@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<div class="SignUpPagina">
+    <form class="card-body cardbody-color p-lg-5" method="post">
+        {% csrf_token %}
+
+        <!-- Logo ou Nome -->
+        <div class="text-center mb-4">
+            <div class="codifiquelogin">&lt;CODIFIQUE&gt;</div>
+        </div>
+
+        <!-- Título -->
+        <div class="text-center mb-4">
+            <h2>Crie uma conta</h2>
+        </div>
+
+        <!-- Campo de Nome -->
+        <div class="mb-3">
+            <input 
+                type="text" 
+                class="form-control" 
+                id="Username" 
+                name="uname" 
+                placeholder="Seu Nome" 
+                required
+            >
+        </div>
+
+        <!-- Campo de Email -->
+        <div class="mb-3">
+            <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name="uemail" 
+                placeholder="Seu Email" 
+                required
+            >
+        </div>
+
+        <!-- Campo de Senha -->
+        <div class="mb-3">
+            <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                name="upassword" 
+                placeholder="Criar Senha" 
+                required
+            >
+        </div>
+
+        <!-- Botão de Cadastro -->
+        <div class="text-center mb-5">
+            <button 
+                type="submit" 
+                class="btn btn-color px-5 w-100"
+            >
+                Cadastrar
+            </button>
+        </div>
+
+        <!-- Link para login -->
+        <div id="emailHelp" class="form-text text-center">
+            Já está registrado? 
+            <a href="login" class="text-dark fw-bold">Entre aqui</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+
+<!-- Navegação -->
+<nav>
+    <ul class="Logo">
+        <li class="codifique">
+            <a href="/home">&lt;CODIFIQUE&gt;</a>
+        </li>
+    </ul>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil</button>
+        <div class="dropdown-content">
+            <a href="/newpost">Nova Postagem</a>
+            <a href="/mypost">Minhas Postagens</a>
+            <a href="/signout">Sair</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Conteúdo -->
+<div class="meuspost" style="max-width: 1350px;">
+    <h1>Minhas Postagens</h1>
+
+    {% for post in posts %}
+    <article class="post">
+
+        <div class="media-body">
+
+            <!-- Metadados do artigo -->
+            <div class="article-metadata">
+                <h2 class="text-uppercase">{{ post.author }}</h2>
+                <h5 >{{ post.date_posted|date:"F d, Y" }}</h5>
+            </div>
+
+            <!-- Título do Post -->
+            <h3 class="post-title">{{ post.title }}</h3>
+
+            <!-- Conteúdo do Post -->
+            <p class="article-content">
+                {{ post.content }}
+            </p>
+        </div>
+    </article>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+

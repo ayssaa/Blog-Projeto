@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<div class="LoginPagina">
+    <form method="POST">
+        {% csrf_token %}
+
+        <!-- Campo de Logo -->
+        <div class="mb-3">
+            <div class="codifiquelogin">&lt;CODIFIQUE&gt;</div>
+        </div>
+
+        <!-- Título -->
+        <div class="text-center mb-4">
+            <h2>Entre</h2>
+        </div>
+
+        <!-- Campo de Username -->
+        <div class="mb-3">
+            <input type="text" class="form-control" id="Username" name="uname" aria-describedby="emailHelp" placeholder="Usuário" required>
+        </div>
+
+        <!-- Campo de Password -->
+        <div class="mb-3">
+            <input type="password" class="form-control" id="password" name="upassword" placeholder="Senha" required>
+        </div>
+
+        <!-- Botão de Login -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-color px-5 mb-5 w-100" value="login">Entrar</button>
+        </div>
+
+        <!-- Link para criar uma conta -->
+        <div id="emailHelp" class="form-text text-center mb-5 text-dark">
+            Ainda não está registrado? <a href="/" class="text-dark fw-bold">Crie uma conta</a>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

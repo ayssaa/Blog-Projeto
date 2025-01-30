@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<nav>
+    <ul class="Logo">
+        <li class="codifique">
+            <a href="/home">&lt;CODIFIQUE&gt;</a>
+        </li>
+    </ul>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil</button>
+        <div class="dropdown-content">
+            <a href="/newpost">Nova Postagem</a>
+            <a href="/mypost">Minhas Postagens</a>
+            <a href="/signout">Sair</a>
+        </div>
+    </div>
+</nav>
+
+
+<br>
+<div>
+    <form method="post"> 
+        {% csrf_token %}
+        <div class="container custom-container">
+            <h1 class="fw-bolder">Adicionar comentário</h1>
+            <div class="form-group">
+                <h3><label for="exampleFormControlTextarea3">Comentário</label></h3>
+                <textarea class="form-control" id="exampleFormControlTextarea3" rows="7" name="content" placeholder="Digite aqui..."></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Enviar">
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

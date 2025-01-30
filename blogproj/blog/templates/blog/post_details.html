@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load static %}
+<nav>
+    <ul class="Logo">
+        <li class="codifique">
+            <a href="/home">&lt;CODIFIQUE&gt;</a>
+        </li>
+    </ul>
+    <div class="dropdown">
+        <button class="dropbtn">Perfil</button>
+        <div class="dropdown-content">
+            <a href="/newpost">Nova Postagem</a>
+            <a href="/mypost">Minhas Postagens</a>
+            <a href="/signout">Sair</a>
+        </div>
+    </div>
+</nav>
+
+<div class="post-container">
+    <article class="post-detalhado">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <p class="post-info">{{ post.author }} - {{ post.date_posted|date:"F d, Y" }}</p>
+        <div class="post-content">
+            <p>{{ post.content }}</p>
+        </div>
+    </article>
+
+    <section class="comments-section">
+        <h2 class="comments-title">Comentários:</h2>
+        {% if not post.comments.all %}
+            <p class="no-comments">
+                Nenhum comentário ainda... <a href="newcomment">Adicionar Comentário</a>
+            </p>
+        {% else %}
+            <div class="add-comment">
+                <a href="newcomment">Adicionar Comentário</a>
+            </div>
+            <div class="comments-list">
+                {% for comment in post.comments.all %}
+                <div class="comment">
+                    <strong class="comment-author">{{ comment.author }} - {{ comment.date_posted|date:"F d, Y" }}</strong>
+                    <p class="comment-content">{{ comment.content }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </section>
+</div>
+
+{% endblock %}

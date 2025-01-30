@@ -1,0 +1,903 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de estilo */
+:root {
+    --primary-blue: #007acc;
+    --primary-green: #00b894;
+    --secondary-orange: #ff9800;
+    --text-dark: #333;
+    --text-light: #555;
+    --text-muted: #888;
+    --background-light: #ffffff;
+    --box-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --box-shadow-medium: 0 8px 15px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0 12px 25px rgba(0, 0, 0, 0.2);
+    --gradient-bg: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+    --font-family-mono: 'Fira Code', monospace;
+}
+
+/* Corpo da página */
+body {
+    font-family: var(--font-family-mono);
+    background: var(--gradient-bg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Cabeçalho */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-light);
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: var(--box-shadow-light);
+}
+
+nav .Logo .codifique a {
+    color: var(--primary-blue);
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 122, 204, 0.3);
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav .Logo .codifique a:hover {
+    color: var(--secondary-orange);
+    transform: scale(1.1);
+}
+
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+nav .dropbtn {
+    background-color: var(--primary-green);
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    color: var(--background-light);
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav .dropbtn:hover {
+    background-color: #009973;
+    transform: scale(1.05);
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--background-light);
+    min-width: 200px;
+    box-shadow: var(--box-shadow-medium);
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+nav .dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 20px;
+    font-size: 14px;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #f3f4f6;
+    color: var(--primary-blue);
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Posts */
+.posts {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.post {
+    background: var(--background-light);
+    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-medium);
+    border: 1px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    animation: slideIn 0.4s ease-in-out;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+    background-color: #ccf2e1;
+}
+
+.post h1.autor {
+    font-size: 20px;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.post h5 {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.post h3 {
+    color: var(--text-dark);
+    font-size: 22px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.post h3:hover {
+    color: var(--secondary-orange);
+}
+
+.post p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Rodapé */
+.footer {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    padding: 30px 0;
+    text-align: center;
+    font-family: var(--font-family-mono);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+/* Página de Login */
+.LoginPagina {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-bg);
+    font-family: var(--font-family-mono);
+    background-size: cover;
+}
+
+.LoginPagina form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+}
+
+.LoginPagina .codifiquelogin {
+    font-size: 36px;
+    color: var(--primary-blue);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 122, 204, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.LoginPagina .codifiquelogin:hover {
+    color: var(--secondary-orange);
+    transform: scale(1.05);
+    text-shadow: 3px 3px 8px rgba(255, 152, 0, 0.5);
+}
+
+.LoginPagina .form-control {
+    font-family: var(--font-family-mono);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.LoginPagina .form-control:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 5px rgba(0, 183, 148, 0.5);
+    outline: none;
+}
+
+.LoginPagina button {
+    background-color: var(--primary-blue);
+    color: var(--background-light);
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.LoginPagina button:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+.LoginPagina #emailHelp {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    color: var(--text-light);
+}
+
+.LoginPagina #emailHelp a {
+    color: var(--primary-green);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.LoginPagina #emailHelp a:hover {
+    color: var(--primary-blue);
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .Logo .codifique a {
+        font-size: 28px;
+    }
+
+    nav .dropbtn {
+        margin-top: 10px;
+    }
+
+    .posts {
+        padding: 0 10px;
+    }
+
+    .footer p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .LoginPagina form {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    .LoginPagina .form-control {
+        font-size: 16px;
+    }
+
+    .LoginPagina button {
+        font-size: 16px;
+    }
+}
+
+/* Estilo geral da página de sign up */
+.SignUpPagina {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #007acc, #00b894); /* Gradiente suave de azul e verde */
+    font-family: 'Fira Code', monospace;
+    background-size: cover;
+}
+
+/* Formulário */
+.SignUpPagina form {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    padding: 40px;
+    border-radius: 15px; /* Cantos mais arredondados */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra mais suave e mais ampla */
+    width: 100%;
+    max-width: 450px; /* Largura mais ajustada */
+    box-sizing: border-box;
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+}
+
+/* Títulos e textos */
+.SignUpPagina .codifiquelogin {
+    font-size: 36px;
+    color: #007acc;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 8px rgba(0, 122, 204, 0.3); /* Efeito de brilho no texto */
+    transition: color 0.3s ease, transform 0.3s ease; /* Adiciona transição suave */
+}
+
+/* Hover no texto <codifique> */
+.SignUpPagina .codifiquelogin:hover {
+    color: #ff9800; /* Amarelo vibrante ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+    text-shadow: 3px 3px 8px rgba(255, 152, 0, 0.5); /* Efeito de brilho amarelo */
+}
+
+/* Campos de input */
+.SignUpPagina .form-control {
+    font-family: 'Fira Code', monospace;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.SignUpPagina .form-control:focus {
+    border-color: #00b894; /* Verde vibrante quando o campo é focado */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 183, 148, 0.5); /* Efeito de brilho suave ao focar */
+}
+
+/* Botão de cadastro */
+.SignUpPagina button {
+    background-color: #007acc;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    box-sizing: border-box;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.SignUpPagina button:hover {
+    background-color: #005f99;
+    transform: scale(1.05); /* Animação sutil de aumento */
+}
+
+/* Texto para login */
+.SignUpPagina #emailHelp {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    color: #555;
+}
+
+.SignUpPagina #emailHelp a {
+    color: #00b894;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.SignUpPagina #emailHelp a:hover {
+    color: #007acc;
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+    .SignUpPagina form {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    .SignUpPagina .form-control {
+        font-size: 16px;
+    }
+
+    .SignUpPagina button {
+        font-size: 16px;
+    }
+}
+
+/* Post Section */
+.post-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-detalhado {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.post-title {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.post-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.post-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 30px;
+}
+
+.comments-title {
+    font-size: 20px;
+    color: #007acc;
+    margin-bottom: 15px;
+}
+
+.no-comments {
+    font-size: 14px;
+    color: #555;
+}
+
+.add-comment a {
+    display: inline-block;
+    font-size: 16px;
+    color: #00b894;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.add-comment a:hover {
+    color: #007acc;
+}
+
+.comments-list .comment {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.comment-author {
+    font-size: 14px;
+    font-weight: bold;
+    color: #007acc;
+}
+
+.comment-content {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+}
+
+
+/* Estilização do formulário de postagem */
+form {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9); /* Leve transparência */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+form h1 {
+    text-align: center;
+    color: #007acc;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form .custom-label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+form .custom-input,
+form .custom-textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form .custom-input:focus,
+form .custom-textarea:focus {
+    border-color: #00b894; /* Verde vibrante ao focar */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 183, 148, 0.5); /* Efeito de brilho suave */
+}
+
+form .custom-submit {
+    background-color: #007acc;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+form .custom-submit:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .Logo .codifique a {
+        font-size: 28px;
+    }
+
+    nav .dropbtn {
+        margin-top: 10px;
+    }
+
+    form {
+        padding: 25px;
+        width: 90%;
+    }
+}
+
+/* Container de postagens */
+.meuspost {
+    max-width: 1350px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;  /* Isso vai centralizar a div horizontalmente */
+    text-align: center;  /* Centraliza o conteúdo textual */
+}
+
+
+/* Títulos */
+.meuspost h1 {
+    text-align: center; /* Centraliza o título */
+    font-size: 36px;    /* Tamanho da fonte */
+    font-weight: bold;  /* Deixa o texto em negrito */
+    color: black;     /* Cor do título (pode ser azul ou outra cor desejada) */
+    margin-bottom: 30px; /* Espaço abaixo do título */
+}
+
+/* Estilos dos posts */
+.post {
+    margin-bottom: 20px;
+}
+
+.media-body {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 23px;
+}
+
+/* Metadados do artigo */
+.article-metadata {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.article-metadata h2 {
+    font-size: 18px;
+    color: #007acc;
+    font-weight: bold;
+}
+
+.article-metadata h5 {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Título do post */
+.post-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Conteúdo do post */
+.article-content {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .dropbtn {
+        margin-top: 10px;
+    }
+
+    .meuspost {
+        padding: 10px;
+    }
+
+    .post {
+        padding: 10px;
+    }
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Fira Code', monospace;
+    background: linear-gradient(to right, #007acc, #00b894); /* Gradiente suave de azul e verde */
+    background-size: cover;
+    background-attachment: fixed; /* Fixo ao rolar a página */
+    color: #333; /* Texto escuro */
+    line-height: 1.6;
+    overflow-x: hidden;
+    display: flex; /* Ativa o layout flexbox */
+    flex-direction: column; /* Alinha os elementos verticalmente */
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* Estilização do cabeçalho */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Fundo branco */
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+nav .Logo {
+    list-style: none;
+}
+
+nav .Logo .codifique a {
+    text-decoration: none;
+    color: #007acc; /* Azul programação */
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transition: color 0.3s, transform 0.3s;
+    text-shadow: 2px 2px 8px rgba(0, 122, 204, 0.3); /* Glow sutil */
+}
+
+nav .Logo .codifique a:hover {
+    color: #ff9800; /* Laranja vibrante ao hover */
+    transform: scale(1.1);
+}
+
+/* Dropdown (Perfil) */
+nav .dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+nav .dropbtn {
+    background-color: #00b894; /* Verde sucesso */
+    font-family: 'Fira Code', monospace;
+    font-weight: 600;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav .dropbtn:hover {
+    background-color: #009973;
+    transform: scale(1.05);
+}
+
+nav .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+nav .dropdown-content a {
+    color: #333;
+    text-decoration: none;
+    padding: 12px 20px;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav .dropdown-content a:hover {
+    background-color: #f3f4f6;
+    color: #007acc;
+}
+
+nav .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilização do formulário de postagem */
+form {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9); /* Leve transparência */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+form h1 {
+    text-align: center;
+    color: #007acc;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+form .form-group {
+    margin-bottom: 20px;
+}
+
+form .form-group h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+form .form-control {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form .form-control:focus {
+    border-color: #00b894; /* Verde vibrante ao focar */
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 183, 148, 0.5); /* Efeito de brilho suave */
+}
+
+form .btn-primary {
+    background-color: #007acc;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+form .btn-primary:hover {
+    background-color: #005f99;
+    transform: scale(1.05);
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .Logo .codifique a {
+        font-size: 28px;
+    }
+
+    nav .dropbtn {
+        margin-top: 10px;
+    }
+
+    form {
+        padding: 25px;
+        width: 90%;
+    }
+}
